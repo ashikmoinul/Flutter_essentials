@@ -1,94 +1,102 @@
-// Material App | Column | Row | Dialog
+// Buttons (ElevatedButton, TextButton, IconButton, GestureButton, InkWell) | TextField
+// Container | Rich-text
 
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'MyApp',
-      theme: ThemeData(primaryColor: Colors.blueGrey),
-      darkTheme: ThemeData(primarySwatch: Colors.blueGrey),
+    return const MaterialApp(
+      title: 'Home',
       home: Home(),
     );
   }
 }
 
 class Home extends StatelessWidget {
+  const Home({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey.shade50,
       appBar: AppBar(
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Colors.green,
         title: Text(
-          ' Home Page',
-          style: TextStyle(
-            color: Colors.white,
-          ),
+          'Home Page',
+          style: TextStyle(color: Colors.black),
         ),
         leading: Icon(
           Icons.home,
-          color: Colors.white,
+          color: Colors.black,
         ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              // ScaffoldMessenger.of(context).showSnackBar(
-              //   SnackBar(
-              //     content: Text('This message has been saved'),
-              //     backgroundColor: Colors.redAccent,
-              //     duration: Duration(seconds: 4),
-              //   ),
-              // );
-
-              showDialog(context: context, builder: (context) {
-                return AlertDialog(
-                  title: Text('Are you sure?'),
-                  content: Text('Its urgent'),
-                );
-              });
-            },
-            icon: Icon(Icons.add),
-          ),
-        ],
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.max,
           children: [
-            Text('Hello People'),
-            Text('Hello Adhik'),
-            Text('Hello Anik'),
-            Text('Hello Ashik'),
-            Text('Hello Siam'),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              // mainAxisSize: MainAxisSize.min,
-              children: [
-                Text('New Home '),
-                Text('data'),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Row(
-                      children: [
-                        Icon(Icons.date_range),
-                        Text('Date: 23.12.24'),
-                      ],
-                    ),
-                    Text('Signature'),
-                  ],
-                )
-              ],
+            //Text('Center', style: TextStyle(color: Colors.black),),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  side: BorderSide(color: Colors.black, width: 2),
+                ),
+                textStyle: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w600,
+                ),
+                padding: EdgeInsets.symmetric(horizontal: 22, vertical: 10),
+              ),
+              onPressed: () {
+                print('pressed');
+              },
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text('Next'),
+                ],
+              ),
+            ),
+            TextButton(
+              style: TextButton.styleFrom(
+                foregroundColor: Colors.red,
+                textStyle: TextStyle(fontSize: 24),
+              ),
+              onPressed: () {},
+              child: Text('Text'),
+            ),
+            IconButton(
+              onPressed: () {
+                print('Tapped in the button');
+              },
+              icon: Icon(Icons.add_circle),
+            ),
+            GestureDetector(
+              onTap: () {
+                print('On tap detected');
+              },
+              onDoubleTap: () {print('double tap detected');},
+              onLongPress: () {print('long tap detected');},
+
+              child: Column(
+                children: [
+                  Text('Gesture Detector'),
+                  Icon(Icons.add_circle),
+                  Row(
+                    children: [
+                      Text('This is a row'),
+                    ],
+                  ),
+                ],
+              ),
             )
           ],
         ),
