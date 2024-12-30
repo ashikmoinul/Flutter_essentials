@@ -1,103 +1,277 @@
-// Buttons (ElevatedButton, TextButton, IconButton, GestureButton, InkWell) | TextField
-// Container | Rich-text
+// Buttons(ElevatedButton, TextButton, IconButton, GestureDetector, InkWell)
+// |  TextField | Container | Padding
 
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Home',
+    return MaterialApp(
+      title: 'Hello World',
+      // debugShowCheckedModeBanner: false,
       home: Home(),
     );
   }
 }
 
+// Column => Vertically
+// Row => Horizontally
+
 class Home extends StatelessWidget {
-  const Home({super.key});
+  List<String> studentList = [
+    'Jahid',
+    'Nayeem',
+    'Abir',
+    'Hasan',
+    'Tonu'
+  ];
 
   @override
   Widget build(BuildContext context) {
+    // Write whatever you want to show in screen
     return Scaffold(
+      backgroundColor: Colors.lightGreen.shade50,
       appBar: AppBar(
         backgroundColor: Colors.green,
-        title: Text(
-          'Home Page',
-          style: TextStyle(color: Colors.black),
-        ),
-        leading: Icon(
-          Icons.home,
-          color: Colors.black,
-        ),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            //Text('Center', style: TextStyle(color: Colors.black),),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.red,
-                foregroundColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  side: BorderSide(color: Colors.black, width: 2),
-                ),
-                textStyle: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w600,
-                ),
-                padding: EdgeInsets.symmetric(horizontal: 22, vertical: 10),
-              ),
-              onPressed: () {
-                print('pressed');
-              },
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text('Next'),
-                ],
-              ),
-            ),
-            TextButton(
-              style: TextButton.styleFrom(
-                foregroundColor: Colors.red,
-                textStyle: TextStyle(fontSize: 24),
-              ),
-              onPressed: () {},
-              child: Text('Text'),
-            ),
-            IconButton(
-              onPressed: () {
-                print('Tapped in the button');
-              },
-              icon: Icon(Icons.add_circle),
-            ),
-            GestureDetector(
-              onTap: () {
-                print('On tap detected');
-              },
-              onDoubleTap: () {print('double tap detected');},
-              onLongPress: () {print('long tap detected');},
+        title: Text('Home screen', style: TextStyle(
+            color: Colors.white
+        ),),
+        leading: Icon(Icons.home_filled, color: Colors.white,),
+        actions: [
+          IconButton(onPressed: () {
+            // ScaffoldMessenger.of(context).showSnackBar(
+            //   SnackBar(
+            //     content: Text('Money has been transferred'),
+            //     backgroundColor: Colors.green,
+            //     duration: Duration(seconds: 1),
+            //   ),
+            // );
+            showDialog(context: context, builder: (context) {
+              return AlertDialog(
+                title: Text('Send money'),
+                content: Text('Are you sure that you want to send money?'),
+                actions: [
 
+                ],
+              );
+            });
+          }, icon: Icon(Icons.add)),
+        ],
+      ),
+      // body: SingleChildScrollView(
+      //   child: Column(
+      //     children: [
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //       Text('sdfjdkslfkds'),
+      //     ]
+      //   ),
+      // )
+      /*body: ListView(
+          scrollDirection: Axis.horizontal,
+          children: [
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+        Text('sdfjdkslfkds'),
+      ]),*/
+      /*body: ListView.builder(
+        itemCount: 100,
+          itemBuilder: (context, index) {
+            return Text('${index + 1}', style: TextStyle(
+              fontSize: 32
+            ),);
+          }
+      ),*/
+      /*body: ListView.builder(
+          itemCount: studentList.length,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
-                  Text('Gesture Detector'),
-                  Icon(Icons.add_circle),
-                  Row(
-                    children: [
-                      Text('This is a row'),
-                    ],
-                  ),
+                  Text(studentList[index], style: TextStyle(
+                    fontSize: 18
+                  ),),
+                  Divider()
                 ],
               ),
-            )
+            );
+          },
+      ),*/
+      /*body: ListView.separated(
+        itemCount: studentList.length,
+        itemBuilder: (context, index) {
+          return Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(studentList[index],
+                style: TextStyle(
+                  fontSize: 18
+              ),),
+              Text(studentList[index],
+                style: TextStyle(
+                  fontSize: 18
+              ),),
+            ],
+          );
+        },
+        separatorBuilder: (context, index) {
+          return Divider(
+            height: 32,
+            thickness: 2,
+            endIndent: 16,
+            indent: 8,
+            color: Colors.pink,
+          );
+        },
+      ),*/
+      /*body: GridView(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 6),
+        children: [
+          Text('1'),
+          Text('2'),
+          Text('3'),
+          Text('4'),
+          Text('5'),
+          Text('6'),
+          Text('7'),
+          Text('8'),
+          Text('8'),
+        ],
+      ),*/
+      // ALT + ENTER (Win)
+      // opt + Enter (Mac)
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            ListView.builder(
+              shrinkWrap: true,
+              primary: false,
+              itemCount: studentList.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      Text(
+                        studentList[index],
+                        style: TextStyle(fontSize: 18),
+                      ),
+                      Divider()
+                    ],
+                  ),
+                );
+              },
+            ),
+            GridView.builder(
+              shrinkWrap: true,
+              primary: false,
+              itemCount: 100,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, childAspectRatio: 3,
+                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 10
+              ),
+              itemBuilder: (context, index) {
+                return Column(
+                  children: [
+                    Text('Roll - ${index+1}'),
+                    // Text(studentList[index])
+                  ],
+                );
+              },),
           ],
         ),
       ),
