@@ -1,4 +1,4 @@
-// Text | Center | Image | Rich-Text
+// Material App | Column | Row | Dialog
 
 import 'package:flutter/material.dart';
 
@@ -10,7 +10,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'My App',
+      title: 'MyApp',
+      theme: ThemeData(primaryColor: Colors.blueGrey),
+      darkTheme: ThemeData(primarySwatch: Colors.blueGrey),
       home: Home(),
     );
   }
@@ -19,36 +21,78 @@ class MyApp extends StatelessWidget {
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    //write whatever you want to set the screen
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Colors.blueGrey.shade50,
+      appBar: AppBar(
+        backgroundColor: Colors.blueGrey,
+        title: Text(
+          ' Home Page',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        leading: Icon(
+          Icons.home,
+          color: Colors.white,
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              // ScaffoldMessenger.of(context).showSnackBar(
+              //   SnackBar(
+              //     content: Text('This message has been saved'),
+              //     backgroundColor: Colors.redAccent,
+              //     duration: Duration(seconds: 4),
+              //   ),
+              // );
+
+              showDialog(context: context, builder: (context) {
+                return AlertDialog(
+                  title: Text('Are you sure?'),
+                  content: Text('Its urgent'),
+                );
+              });
+            },
+            icon: Icon(Icons.add),
+          ),
+        ],
+      ),
       body: Center(
-        // child: Text(
-        //   'Hello World, This world will end someday and we all die. Hopefull we all die in peace and it will infinity. ',
-        //   textAlign: TextAlign.center,
-        //   maxLines: 1,
-        //   style: TextStyle(
-        //     fontSize: 20,
-        //     fontWeight: FontWeight.w300,
-        //     backgroundColor: Colors.blueAccent,
-        //     color: Colors.black,
-        //     overflow: TextOverflow.ellipsis,
-        //
-        //   ),
-        // ),
-        child: // Image.network('https://picsum.photos/seed/picsum/200/300'),
-        Image.asset('images/poo.jpg', height: 300, width: 300, fit: BoxFit.fill,),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Text('Hello People'),
+            Text('Hello Adhik'),
+            Text('Hello Anik'),
+            Text('Hello Ashik'),
+            Text('Hello Siam'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              // mainAxisSize: MainAxisSize.min,
+              children: [
+                Text('New Home '),
+                Text('data'),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.date_range),
+                        Text('Date: 23.12.24'),
+                      ],
+                    ),
+                    Text('Signature'),
+                  ],
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
 }
-
-// class Picture extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//      body: Center(
-//         child: Image.network('https://www.google.com/search?q=image&oq=iamge&gs_lcrp=EgZjaHJvbWUqDAgBEAAYChixAxiABDIGCAAQRRg5MgwIARAAGAoYsQMYgAQyDAgCEAAYChixAxiABDIMCAMQABgKGLEDGIAEMgwIBBAAGAoYsQMYgAQyCQgFEAAYChiABDIMCAYQABgKGLEDGIAEMgwIBxAAGAoYsQMYgAQyDAgIEAAYChixAxiABDIMCAkQABgKGLEDGIAE0gEIMjkzOGowajeoAgCwAgA&sourceid=chrome&ie=UTF-8#vhid=sKMM4eBjWSQEBM&vssid=_xL1lZ8_gGNyOseMPpqqJ6Ac_71') ),
-//     );
-//   }
-//}
