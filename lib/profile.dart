@@ -25,11 +25,12 @@ class Profile extends StatelessWidget {
               child: Text('Back to home'),
             ),
             ElevatedButton(
-                onPressed: () {
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => Settings()));
-                },
-                child: Text('Go to Settings')),
+              onPressed: () {
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => Settings()));
+              },
+              child: Text('Go to Settings'),
+            ),
           ],
         ),
       ),
