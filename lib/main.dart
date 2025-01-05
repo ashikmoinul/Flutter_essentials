@@ -83,9 +83,12 @@ class Home extends StatelessWidget {
               onTap: () {
                 print('On tap detected');
               },
-              onDoubleTap: () {print('double tap detected');},
-              onLongPress: () {print('long tap detected');},
-
+              onDoubleTap: () {
+                print('double tap detected');
+              },
+              onLongPress: () {
+                print('long tap detected');
+              },
               child: Column(
                 children: [
                   Text('Gesture Detector'),
