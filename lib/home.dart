@@ -4,13 +4,12 @@ import 'package:flutter_essentials/settings.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.pink.shade50,
       appBar: AppBar(
-        title: Text('Home'),
+        title: const Text('Home'),
       ),
       body: Center(
         child: Column(
@@ -22,7 +21,7 @@ class Home extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return Settings();
+                      return const Settings();
                     },
                   ),
                 );
@@ -34,7 +33,9 @@ class Home extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Profile(userName: 'Imran',),
+                      builder: (context) => Profile(
+                        userName: 'Imran',
+                      ),
                     ),
                   ).then((value) {
                     print(value);
