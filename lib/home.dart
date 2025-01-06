@@ -29,19 +29,22 @@ class Home extends StatelessWidget {
               child: Text('Go to Settings'),
             ),
             ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Profile(
-                        userName: 'Imran',
-                      ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Profile(
+                      userName: 'Imran',
                     ),
-                  ).then((value) {
+                  ),
+                ).then(
+                  (value) {
                     print(value);
-                  });
-                },
-                child: Text('Go to Profile'),),
+                  },
+                );
+              },
+              child: Text('Go to Profile'),
+            ),
           ],
         ),
       ),
