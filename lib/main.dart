@@ -101,6 +101,7 @@ class Home extends StatelessWidget {
             // ),
             InkWell(
               splashColor: Colors.red,
+              radius: 20,
               onTap: () {
                 print('one tap in inkwell');
               },
