@@ -1,6 +1,5 @@
 // Buttons (ElevatedButton, TextButton, IconButton, GestureButton, InkWell) | TextField
 // Container | Rich-text
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,7 +19,6 @@ class MyApp extends StatelessWidget {
 
 class Home extends StatelessWidget {
   const Home({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,28 +77,50 @@ class Home extends StatelessWidget {
               },
               icon: Icon(Icons.add_circle),
             ),
-            GestureDetector(
+            // GestureDetector(
+            //   onTap: () {
+            //     print('On tap detected');
+            //   },
+            //   onDoubleTap: () {
+            //     print('double tap detected');
+            //   },
+            //   onLongPress: () {
+            //     print('long tap detected');
+            //   },
+            //   child: Column(
+            //     children: [
+            //       Text('Gesture Detector'),
+            //       Icon(Icons.add_circle),
+            //       Row(
+            //         children: [
+            //           Text('This is a row'),
+            //         ],
+            //       ),
+            //     ],
+            //   ),
+            // ),
+            InkWell(
               onTap: () {
-                print('On tap detected');
+                print('one tap in inkwell');
               },
               onDoubleTap: () {
-                print('double tap detected');
+                print('on double tap in inkwell');
               },
               onLongPress: () {
-                print('long tap detected');
+                print('long pressed in inkwell');
               },
               child: Column(
                 children: [
-                  Text('Gesture Detector'),
+                  Text('Inkwell'),
                   Icon(Icons.add_circle),
                   Row(
                     children: [
                       Text('This is a row'),
                     ],
-                  ),
+                  )
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
