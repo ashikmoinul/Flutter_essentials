@@ -41,7 +41,7 @@ class Home extends StatelessWidget {
                     print(value);
                   });
                 },
-                child: Text('Go to Profile')),
+                child: Text('Go to Profile'),),
           ],
         ),
       ),
