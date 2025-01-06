@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
 
 class Home extends StatelessWidget {
   const Home({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,52 +79,25 @@ class Home extends StatelessWidget {
               },
               icon: Icon(Icons.add_circle),
             ),
-            // GestureDetector(
-            //   onTap: () {
-            //     print('On tap detected');
-            //   },
-            //   onDoubleTap: () {
-            //     print('double tap detected');
-            //   },
-            //   onLongPress: () {
-            //     print('long tap detected');
-            //   },
-            //   child: Column(
-            //     children: [
-            //       Text('Gesture Detector'),
-            //       Icon(Icons.add_circle),
-            //       Row(
-            //         children: [
-            //           Text('This is a row'),
-            //         ],
-            //       ),
-            //     ],
-            //   ),
-            // ),
-            InkWell(
-              splashColor: Colors.red,
-              radius: 20,
+            GestureDetector(
               onTap: () {
-                print('one tap in inkwell');
+                print('On tap detected');
               },
-              onDoubleTap: () {
-                print('on double tap in inkwell');
-              },
-              onLongPress: () {
-                print('long pressed in inkwell');
-              },
+              onDoubleTap: () {print('double tap detected');},
+              onLongPress: () {print('long tap detected');},
+
               child: Column(
                 children: [
-                  Text('Inkwell'),
+                  Text('Gesture Detector'),
                   Icon(Icons.add_circle),
                   Row(
                     children: [
                       Text('This is a row'),
                     ],
-                  )
+                  ),
                 ],
               ),
-            ),
+            )
           ],
         ),
       ),
