@@ -1,5 +1,6 @@
+// Buttons (ElevatedButton, TextButton, IconButton, GestureButton, InkWell) | TextField
+// Container | Rich-text
 // Stateful Widget
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -8,7 +9,6 @@ void main() {
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
-
   @override
   State<MyApp> createState() => _MyAppState();
 }
@@ -16,6 +16,12 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
+
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      color: Colors.pink,
+      title: 'Home',
+      home: Home(),
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       color: Colors.green,
